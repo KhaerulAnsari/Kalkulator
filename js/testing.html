@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content{
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            height: 300px;
+            border-radius: 30px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            box-sizing: border-box;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .content p{
+            text-transform: uppercase;
+        }
+
+        .content button{
+            padding: 5px 20px;
+            cursor: pointer;
+            border-radius: 20px;
+            background-color:lightgreen;
+            color: white;
+            border: 1px solid lightgreen;
+            margin-bottom: 30px;
+        }
+
+        .content button:hover{
+            background-color: green;
+            border: 1px solid green;
+            font-weight: bold;
+            border-collapse: none;
+        }
+
+        .box{
+            width: 200px;
+            height: 200px;
+            border-radius: 30px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            margin: 10px auto 20px;
+            text-align: center;
+            padding: 40px 0;
+            box-sizing: border-box;
+        }
+
+        .box p {
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
+        #back{
+            opacity: 1;
+        }
+
+        .muncul {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <p>Klik Tombol di bawah untuk Mengisi data</p>
+        <button onclick="displayDate()">Isi Data</button> <br>
+        <button id="bungkus" >Isi data 2</button>
+    </div>
+
+    <div id="bungkuss">
+        <p id="name"></p>
+        <p id="alamat"></p>
+        <p id="telpon"></p>
+    </div>
+   
+   <div id="coba">
+    <button id="back">Kembali</button>
+   </div>
+    <script>
+        var bungkuss = document.querySelector("#bungkuss");
+        function displayDate(){
+            var nama = prompt("Nama","");
+            var alamat = prompt("Alamat","");
+            var telp = prompt("No Telpon")
+            var yakin = confirm("Apakah Data Anda SUdah benar? "+ "\n" + "Nama : " + nama + "\n" + "Alamat : " + alamat + "\n" + "No Telpon : " + telp);
+           
+            if(yakin){
+                document.getElementById("name").innerHTML = nama;
+                document.getElementById("alamat").innerHTML = alamat;
+                document.getElementById("telpon").innerHTML = telp;
+            }
+            else{
+                return nama;
+            }
+            bungkuss.classList.add("box");
+           
+        }
+
+        var bungkus = document.getElementById("bungkus");
+        var back = document.getElementById("back");
+        var coba = document.querySelector("#coba");
+        bungkus.onclick = function(){
+            coba.classList.add("box");
+            back.classList.add("muncul");
+        }
+
+        back.onclick = function(){
+            coba.classList.remove("box");
+
+        }
+    </script>
+</body>
+</html>
